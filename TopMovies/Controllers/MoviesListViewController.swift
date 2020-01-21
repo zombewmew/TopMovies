@@ -36,6 +36,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
             statusBar?.backgroundColor = UIColor.white
         }
     }
+    
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,23 +53,17 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.ScoreLabel.text = String(Int(movie.score * 10))
         cell.DateLabel.text = formatDate(dateMovie: movie.date)
         
-        print("Begin of code")
 
         let url = URL(string: "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.posterUrl)
         
         downloadImage(from: url!, imagePlace: cell.PosterImage!)
-        print("End of code. The image will continue downloading in the background and it will be loaded when it ends.")
         
         return cell
     }
     
-    
-    
     func downloadImage(from url: URL, imagePlace: UIImageView) {
-        print("Download Started")
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
-            print("Download Finished")
             DispatchQueue.main.async() {
                 imagePlace.image = UIImage(data: data)
             }
@@ -89,11 +84,10 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         if let date = dateFormatterGet.date(from: dateMovie) {
             return dateFormatterPrint.string(from: date)
         } else {
-            print("There was an error decoding the string")
+            print("There was an error decoding the date string")
             return ""
         }
     }
-    
     
 }
 
