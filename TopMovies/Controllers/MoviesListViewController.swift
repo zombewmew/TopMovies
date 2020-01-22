@@ -35,6 +35,7 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
             let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
             statusBar?.backgroundColor = UIColor.white
         }
+        
     }
     
     // MARK: - UITableViewDataSource
@@ -48,12 +49,13 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         let movie = movies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MovieCell
 
+        cell.delegate = self
+        
         cell.TitleLabel.text = movie.name
         cell.DescriptionLabel.text = movie.description
         cell.ScoreLabel.text = String(Int(movie.score * 10))
         cell.DateLabel.text = formatDate(dateMovie: movie.date)
         
-
         let url = URL(string: "https://image.tmdb.org/t/p/w185_and_h278_bestv2" + movie.posterUrl)
         
         downloadImage(from: url!, imagePlace: cell.PosterImage!)
@@ -86,6 +88,24 @@ class MoviesListViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
             print("There was an error decoding the date string")
             return ""
+        }
+    }
+    
+}
+
+
+// MARK: - RemindersExtension
+
+extension MoviesListViewController: MovieCellDelegate {
+    
+    func GetMovieInfo(title: String) {
+        self.performSegue(withIdentifier: "ShowReminderSegue", sender: title)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowReminderSegue" {
+            let rvc = segue.destination as! RemindersController
+            rvc.titleMovie = sender as? String
         }
     }
     

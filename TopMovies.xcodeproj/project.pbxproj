@@ -18,6 +18,7 @@
 		31ADC36B23CF27620032448F /* MoviesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ADC36A23CF27620032448F /* MoviesData.swift */; };
 		31ADC36D23CF2B170032448F /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ADC36C23CF2B170032448F /* MoviesModel.swift */; };
 		31F6919F23D6F7F500D432D2 /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F6919E23D6F7F500D432D2 /* MoviesListViewController.swift */; };
+		31F691A123D72D7200D432D2 /* RemindersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F691A023D72D7200D432D2 /* RemindersController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		31ADC36A23CF27620032448F /* MoviesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesData.swift; sourceTree = "<group>"; };
 		31ADC36C23CF2B170032448F /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		31F6919E23D6F7F500D432D2 /* MoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewController.swift; sourceTree = "<group>"; };
+		31F691A023D72D7200D432D2 /* RemindersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				31F6919E23D6F7F500D432D2 /* MoviesListViewController.swift */,
+				31F691A023D72D7200D432D2 /* RemindersController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				31ADC36D23CF2B170032448F /* MoviesModel.swift in Sources */,
 				31F6919F23D6F7F500D432D2 /* MoviesListViewController.swift in Sources */,
 				31ADC36B23CF27620032448F /* MoviesData.swift in Sources */,
+				31F691A123D72D7200D432D2 /* RemindersController.swift in Sources */,
 				317B022E23CDDE7E00165058 /* RequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

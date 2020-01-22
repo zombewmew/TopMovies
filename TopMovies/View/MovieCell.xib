@@ -81,6 +81,9 @@
                                                 <state key="normal" title="Shedule viewing">
                                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="SheduleShow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="syD-hk-BW2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -132,7 +135,6 @@
                 <outlet property="MovieView" destination="H2p-sc-9uM" id="JZK-Yv-VFF"/>
                 <outlet property="PosterImage" destination="LdS-Z0-DcC" id="4JO-cC-941"/>
                 <outlet property="ScoreLabel" destination="HsZ-Xb-Ecg" id="cyU-v3-ZID"/>
-                <outlet property="SheduleButton" destination="jdV-EU-ASQ" id="Ef6-iY-bHU"/>
                 <outlet property="TitleLabel" destination="CTs-Fm-fvy" id="rKx-Lw-enl"/>
             </connections>
             <point key="canvasLocation" x="121.73913043478262" y="141.96428571428569"/>

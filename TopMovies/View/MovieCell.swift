@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol MovieCellDelegate {
+    func GetMovieInfo(title: String)
+}
+
 class MovieCell: UITableViewCell {
+    
+    var delegate: MovieCellDelegate?
 
     @IBOutlet weak var MovieView: UIView!
     @IBOutlet weak var ScoreLabel: UILabel!
@@ -16,8 +22,14 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
     @IBOutlet weak var PosterImage: UIImageView!
-    @IBOutlet weak var SheduleButton: UIButton!
-    
+
+    @IBAction func SheduleShow(_ sender: UIButton) {
+
+        if (self.delegate != nil) {
+            self.delegate?.GetMovieInfo(title: TitleLabel.text!)
+        }
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,12 +38,7 @@ class MovieCell: UITableViewCell {
         MovieView.layer.shadowOpacity = 0.5
         MovieView.layer.shadowOffset = .zero
         MovieView.layer.shadowRadius = 5
+        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        //super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

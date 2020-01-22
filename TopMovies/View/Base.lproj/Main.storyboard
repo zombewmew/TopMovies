@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2CN-2e-2Bb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,11 +32,77 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hA9-n4-QnV" id="M4W-R4-zfh"/>
+                        <segue destination="9iV-q8-2dC" kind="show" identifier="ShowReminderSegue" id="Kq9-gp-N74"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ISv-XM-WRk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="953.62318840579712" y="91.741071428571431"/>
+        </scene>
+        <!--Reminders Controller-->
+        <scene sceneID="Txb-wr-o0b">
+            <objects>
+                <viewController id="9iV-q8-2dC" customClass="RemindersController" customModule="TopMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fYt-mF-Pl4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3yr-7a-cnj">
+                                <rect key="frame" x="0.0" y="485" width="414" height="216"/>
+                            </datePicker>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qTe-Ob-gWm">
+                                <rect key="frame" x="20" y="116" width="374" height="376"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="376" id="DLt-IT-NNk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can set reminder!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPD-pw-mhF">
+                                <rect key="frame" x="123.5" y="20" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyS-7X-Xja">
+                                <rect key="frame" x="192" y="748" width="30" height="30"/>
+                                <state key="normal" title="SET"/>
+                                <connections>
+                                    <action selector="SetReminder:" destination="9iV-q8-2dC" eventType="touchUpInside" id="h8d-PY-idf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEm-6P-EFH">
+                                <rect key="frame" x="190.5" y="61" width="33.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3yr-7a-cnj" firstAttribute="centerX" secondItem="HyS-7X-Xja" secondAttribute="centerX" id="1Oh-uw-tpv"/>
+                            <constraint firstItem="3yr-7a-cnj" firstAttribute="leading" secondItem="fYt-mF-Pl4" secondAttribute="leading" id="26H-xy-4L4"/>
+                            <constraint firstItem="HyS-7X-Xja" firstAttribute="centerX" secondItem="fYt-mF-Pl4" secondAttribute="centerX" id="6km-az-Fx4"/>
+                            <constraint firstItem="sEm-6P-EFH" firstAttribute="centerX" secondItem="fYt-mF-Pl4" secondAttribute="centerX" id="AA7-ao-JBh"/>
+                            <constraint firstItem="sEm-6P-EFH" firstAttribute="top" secondItem="qPD-pw-mhF" secondAttribute="bottom" constant="20" id="K5S-Wb-0sY"/>
+                            <constraint firstItem="HyS-7X-Xja" firstAttribute="top" secondItem="3yr-7a-cnj" secondAttribute="bottom" constant="47" id="LFj-S6-t11"/>
+                            <constraint firstItem="qPD-pw-mhF" firstAttribute="top" secondItem="wyh-pN-RPH" secondAttribute="top" constant="20" id="ROk-zZ-mx8"/>
+                            <constraint firstItem="qTe-Ob-gWm" firstAttribute="leading" secondItem="fYt-mF-Pl4" secondAttribute="leadingMargin" id="WEV-J6-TAR"/>
+                            <constraint firstItem="qTe-Ob-gWm" firstAttribute="centerX" secondItem="qPD-pw-mhF" secondAttribute="centerX" id="pdc-DP-TJX"/>
+                            <constraint firstItem="wyh-pN-RPH" firstAttribute="bottom" secondItem="HyS-7X-Xja" secondAttribute="bottom" constant="30" id="t7l-1g-fFX"/>
+                            <constraint firstItem="qPD-pw-mhF" firstAttribute="centerX" secondItem="fYt-mF-Pl4" secondAttribute="centerX" id="wuq-cn-TzQ"/>
+                            <constraint firstItem="qTe-Ob-gWm" firstAttribute="top" secondItem="qPD-pw-mhF" secondAttribute="bottom" constant="75" id="zLa-Bb-eZf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wyh-pN-RPH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="csN-5d-Xau"/>
+                    <connections>
+                        <outlet property="DataPicker" destination="3yr-7a-cnj" id="GTH-pg-hkc"/>
+                        <outlet property="movieImageView" destination="qTe-Ob-gWm" id="TlH-Qp-7ml"/>
+                        <outlet property="movieTitleLabel" destination="sEm-6P-EFH" id="UwZ-y3-Kdn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7O6-9T-mEU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1898.5507246376812" y="91.741071428571431"/>
         </scene>
     </scenes>
 </document>
